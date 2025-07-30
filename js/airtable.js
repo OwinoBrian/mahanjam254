@@ -1,6 +1,6 @@
 async function fetchEscorts() {
   try {
-    const response = await fetch("http://https://mahanjam254.onrender.com/api/escorts");
+    const response = await fetch("https://mahanjam254.onrender.com/api/escorts");
     const data = await response.json();
     const escorts = data.records;
 
