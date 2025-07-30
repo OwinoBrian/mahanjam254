@@ -1,0 +1,10 @@
+patCN3rBvij927PsB.4501f12b46228a4af6ed65cfc3a5d3d9532da185c46d09e4abe5882a23a061eb
+
+
+   "bases": [
+        {
+            "id": "appzAyJdHNvrCu67F",
+            "name": "Job Management and Candidate Tracking",
+            "permissionLevel": "create"
+        }
+    ]

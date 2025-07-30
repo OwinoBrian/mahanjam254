@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JobEntry - Job Portal Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <svg class="m-0 text-primary" xmlns="http://www.w3.org/2000/svg" width="100" height="50" viewBox="0 0 100 50" >
+                    <defs>
+                      <style>
+                        .cls-1 {
+                          font-family: SourceSans3-BoldItalic, 'Source Sans 3';
+                          font-size: 5.45px;
+                          font-style: italic;
+                          font-weight: 700;
+                        }
+                  
+                        .cls-1, .cls-2 {
+                          fill: #231f20;
+                        }
+                  
+                        .cls-3 {
+                          fill: #fff;
+                          stroke: #231f20;
+                          stroke-miterlimit: 10;
+                        }
+                  
+                        .cls-4 {
+                          letter-spacing: .06em;
+                        }
+                  
+                        .cls-5 {
+                          letter-spacing: .09em;
+                        }
+                  
+                        .cls-6 {
+                          letter-spacing: .08em;
+                        }
+                  
+                        .cls-7 {
+                          letter-spacing: .09em;
+                        }
+                  
+                        .cls-8 {
+                          letter-spacing: .08em;
+                        }
+                  
+                        .cls-9 {
+                          letter-spacing: .08em;
+                        }
+                  
+                        .cls-10 {
+                          fill: #3953a4;
+                        }
+                      </style>
+                    </defs>
+                    <g>
+                      <g>
+                        <path class="cls-10" d="m36.92,21.31v11.92c-.55-.22-1.08-.45-1.6-.7-.58-.28-1.13-.57-1.67-.89-.25-.14-.53-.22-.81-.22-.17,0-.34.03-.5.08-.44.14-.79.47-.97.89l-2.99,6.95c-.3.7-.07,1.52.56,1.95.49.34,1.04.67,1.63.98.75.39,1.57.76,2.47,1.09-.75.18-1.61.37-2.57.56-2.47.5-5.53.75-9.1.75-3.17,0-6.09-.5-8.7-1.48-2.64-1-4.93-2.48-6.81-4.4-1.87-1.92-3.34-4.29-4.35-7.06-1-2.73-1.5-5.87-1.5-9.34s.56-6.7,1.67-9.44c1.11-2.76,2.66-5.14,4.61-7.06,1.95-1.93,4.28-3.41,6.91-4.41,2.6-.98,5.41-1.48,8.35-1.48,1.95,0,3.75.13,5.35.39,1.57.26,2.95.56,4.1.91,1.19.35,2.15.71,2.95,1.1.76.37,1.31.66,1.67.88.64.4.92,1.2.66,1.91l-2.59,7.18c-.16.44-.5.79-.93.95-.19.07-.38.11-.58.11-.26,0-.52-.06-.75-.19-1.13-.6-2.45-1.13-3.93-1.58-1.43-.43-3.03-.65-4.74-.65-3.69,0-6.24.94-7.79,2.87-1.61,2.01-2.43,4.87-2.43,8.5,0,1.79.21,3.43.63,4.87.4,1.38,1,2.57,1.78,3.55.77.96,1.7,1.68,2.86,2.21,1.16.53,2.56.8,4.16.8.97,0,1.8-.02,2.47-.05.12,0,.23-.01.35-.02v-12.45c0-.89.72-1.6,1.6-1.6h8.96c.89,0,1.6.72,1.6,1.6Z"/>
+                        <path class="cls-10" d="m26.36,21.31v13.84c-.54.12-1.16.19-1.87.23-.71.04-1.56.06-2.55.06-1.84,0-3.45-.31-4.83-.95-1.38-.63-2.53-1.52-3.45-2.67-.92-1.15-1.61-2.52-2.07-4.11-.46-1.59-.69-3.36-.69-5.31,0-4.02.93-7.19,2.79-9.5,1.86-2.32,4.87-3.47,9.05-3.47,1.88,0,3.61.24,5.2.72,1.59.48,3,1.05,4.22,1.69l2.58-7.18c-.3-.19-.81-.46-1.52-.81-.71-.34-1.61-.68-2.7-1-1.09-.32-2.39-.61-3.91-.86-1.51-.25-3.21-.38-5.08-.38-2.76,0-5.35.46-7.78,1.38-2.43.92-4.55,2.27-6.35,4.05-1.8,1.78-3.22,3.95-4.25,6.52-1.03,2.57-1.55,5.52-1.55,8.85s.47,6.22,1.41,8.79c.94,2.56,2.27,4.73,3.99,6.49,1.72,1.76,3.8,3.1,6.23,4.02,2.43.92,5.14,1.38,8.13,1.38,3.48,0,6.41-.24,8.79-.72.14-.03.29-.06.42-.09-.59-.31-1.13-.64-1.63-.98-.63-.43-.87-1.25-.56-1.95l2.99-6.95c.18-.42.54-.75.97-.89.16-.05.33-.08.5-.08.28,0,.56.08.81.22.53.31,1.09.61,1.67.89v-11.22h-8.96Z"/>
+                      </g>
+                      <g>
+                        <path class="cls-2" d="m89.98,43.1c-.28.51-.82.82-1.4.82h-10.65c-.56,0-1.07-.29-1.36-.75-.79-1.26-1.72-2.64-2.79-4.1-1.08-1.48-2.25-2.98-3.48-4.47-1.23-1.49-2.54-2.93-3.88-4.29-.47-.47-.93-.92-1.4-1.36v13.37c0,.89-.72,1.6-1.6,1.6h-8.96c-.89,0-1.6-.72-1.6-1.6v-1.25c.38-.33.73-.69,1.05-1.07.2-.23.38-.47.56-.71.96-1.3,1.65-2.79,2.08-4.44.47-1.85.71-3.84.71-5.91V2.53c0-.89-.72-1.6-1.6-1.6h7.78c.89,0,1.6.72,1.6,1.6v10.91c1.4-1.5,2.81-3.05,4.22-4.62,2.4-2.66,4.61-5.14,6.58-7.36.3-.34.74-.54,1.2-.54h10.63c.63,0,1.19.36,1.46.92s.17,1.23-.23,1.71c-2.7,3.22-5.47,6.37-8.22,9.36-2.36,2.57-4.87,5.19-7.48,7.81,2.79,2.47,5.51,5.33,8.1,8.53,2.98,3.68,5.89,7.79,8.65,12.22.31.49.32,1.12.04,1.63Z"/>
+                        <path class="cls-2" d="m80.04,30.27c-2.96-3.64-6.03-6.79-9.21-9.45,3.03-3.02,5.91-6.01,8.65-8.99,2.74-2.97,5.46-6.08,8.17-9.3h-10.63c-2.02,2.27-4.21,4.72-6.58,7.37-2.38,2.64-4.72,5.17-7.02,7.59V2.53h-6.18v26.42c0,2.07-.24,4.06-.71,5.91-.42,1.65-1.12,3.14-2.08,4.44v3.03h8.96v-16.86c1.38,1.07,2.76,2.31,4.14,3.72s2.7,2.87,3.97,4.4,2.44,3.04,3.54,4.55c1.09,1.5,2.04,2.9,2.85,4.2h10.65c-2.73-4.39-5.58-8.41-8.53-12.06Z"/>
+                        <path class="cls-3" d="m57.24,2.53v26.42c0,2.07-.24,4.06-.71,5.91-.42,1.65-1.12,3.14-2.08,4.44-.17.24-.36.48-.56.71-.32.38-.67.74-1.05,1.07-1.1.99-2.44,1.79-3.99,2.42-2.04.82-4.61,1.24-7.64,1.24-2.77,0-5.2-.35-7.23-1.03-.33-.11-.64-.22-.95-.34-.9-.34-1.72-.7-2.47-1.09-.59-.31-1.13-.64-1.63-.98-.63-.43-.87-1.25-.56-1.95l2.99-6.95c.18-.42.54-.75.97-.89.16-.05.33-.08.5-.08.28,0,.56.08.81.22.53.31,1.09.61,1.67.89.52.25,1.06.48,1.6.7.02,0,.04.02.07.03,1.07.42,2.26.64,3.55.64,1.69,0,2.87-.36,3.51-1.07.47-.53,1.03-1.7,1.03-4.33V2.53c0-.89.72-1.6,1.6-1.6h8.96c.89,0,1.6.72,1.6,1.6Z"/>
+                      </g>
+                    </g>
+                    <text class="cls-1" transform="translate(22.18 52.73)"><tspan class="cls-5" x="0" y="0">Shaping </tspan><tspan class="cls-4" x="24.48" y="0">Y</tspan><tspan class="cls-7" x="27.56" y="0">our </tspan><tspan class="cls-9" x="38.64" y="0">F</tspan><tspan class="cls-5" x="41.81" y="0">u</tspan><tspan class="cls-8" x="45.29" y="0">t</tspan><tspan class="cls-5" x="47.74" y="0">u</tspan><tspan class="cls-6" x="51.22" y="0">r</tspan><tspan class="cls-5" x="53.77" y="0">e</tspan></text>
+                  
+                </svg></a>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link active">About</a>
+                    <div class="nav-item dropdown">
+                        <a href="job-list.html" class="nav-item nav-link" >Jobs</a>
+                        <!--div class="dropdown-menu rounded-0 m-0">
+                            <a href="job-list.html" class="dropdown-item">Job List</a>
+                            <a href="job-detail.html" class="dropdown-item">Job Detail</a>
+                        </div-->
+                    </div>
+                    <!--div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="category.html" class="dropdown-item">Job Category</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404</a>
+                        </div-->
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">CONTACT</a>
+                </div>
+                <a href="job-list.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Apply Now<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+
+        <!-- Header End -->
+        <div class="container-xxl py-5 bg-dark page-header mb-5">
+            <div class="container my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb text-uppercase">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <!--li class="breadcrumb-item"><a href="#">Pages</a></li-->
+                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="row g-0 about-bg rounded overflow-hidden">
+                            <div class="col-6 text-start">
+                                <img class="img-fluid w-100" src="img/about-1.jpg">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid" src="img/about-2.jpg" style="width: 85%; margin-top: 15%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid" src="img/about-3.jpg" style="width: 85%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid w-100" src="img/about-4.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
+                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
+                        <!--a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Company</h5>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Contact</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Newsletter</h5>
+                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
