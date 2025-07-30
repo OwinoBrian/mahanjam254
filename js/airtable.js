@@ -23,10 +23,12 @@ function renderEscortCards(escorts) {
     const card = `
       <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
         <div class="job-item p-4 mb-4">
-          <h5>${escort.Name || "Unnamed Escort"}</h5>
-          <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${escort.Location || "Undisclosed"}</p>
-          <p>${escort.services || "No services listed."}</p>
-          
+          <a href="job-detail.html?id=${record.id}" style="text-decoration: none; color: inherit;">
+            <h5>${escort.Name || "Unnamed Escort"}</h5>
+            <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${escort.Location || "Undisclosed"}</p>
+            <p>${escort.services || "No services listed."}</p>
+          </a>
+
           ${username ? `
             <a href="https://t.me/${username}" class="btn btn-outline-primary telegram-btn" target="_blank">
               <i class="fab fa-telegram-plane"></i> Chat on Telegram
@@ -37,6 +39,7 @@ function renderEscortCards(escorts) {
         </div>
       </div>
     `;
+
     container.innerHTML += card;
   });
 }
