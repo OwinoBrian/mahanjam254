@@ -189,10 +189,26 @@
                 padding: 40px 10px;
             }
         }
+        .modal-backdrop.show { z-index: 1050; }
+        .modal.show { z-index: 1060; }
     </style>
 </head>
 
 <body>
+    <!-- Place this just before </body> -->
+    <div class="modal fade" id="escortSignupModal" tabindex="-1" aria-labelledby="escortSignupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+            <h5 class="modal-title" id="escortSignupModalLabel">Escort Signup</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <iframe class="airtable-embed" src="https://airtable.com/embed/appEtcpuNIPBSeBuH/pagNORs4i2Tpab9pU/form" frameborder="0" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        </div>
+        </div>
+    </div>
+    </div>
     <div class="container-xxl" style="background-color:#181818;">
         <!-- Spinner Start -->
         <!-- Removed spinner for immediate load -->
@@ -211,7 +227,7 @@
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="job-list.html" class="nav-item nav-link">Escorts</a>
-                    <!--a href="#" class="nav-item nav-link">Login/Register</a-->
+                    <a href="https://airtable.com/embed/appEtcpuNIPBSeBuH/pagNORs4i2Tpab9pU/form" target="_blank" class="nav-item nav-link">Escort Signup</a>
                 </div>
             </div>
         </nav>
@@ -297,100 +313,48 @@
         </div>
         <!-- About End -->
 
+        <div class="mb-4 text-center" id="escort-location-filters"></div>
+
         <!-- Jobs Start -->
         <div class="container-xxl py-5">
             <div class="container">
-                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Featured Escorts</h1>
-                <div class="row g-4">
-                    <!-- Escort Item -->
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="job-item text-center p-4">
-                            <img src="img/job-1.jpg" alt="Escort Image" class="img-fluid mb-3">
-                            <h5 class="mb-2">Sasha</h5>
-                            <p class="mb-3">Elegant, charming, and ready to make your night unforgettable.</p>
-                            <a href="#" class="btn btn-primary">View Profile</a>
-                        </div>
-                    </div>
-                    <!-- Escort Item -->
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="job-item text-center p-4">
-                            <img src="img/job-2.jpg" alt="Escort Image" class="img-fluid mb-3">
-                            <h5 class="mb-2">Liam</h5>
-                            <p class="mb-3">Sophisticated and attentive, perfect for any occasion.</p>
-                            <a href="#" class="btn btn-primary">View Profile</a>
-                        </div>
-                    </div>
-                    <!-- Escort Item -->
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="job-item text-center p-4">
-                            <img src="img/job-3.jpg" alt="Escort Image" class="img-fluid mb-3">
-                            <h5 class="mb-2">Zara</h5>
-                            <p class="mb-3">Exotic beauty with a playful side, ready for adventure.</p>
-                            <a href="#" class="btn btn-primary">View Profile</a>
-                        </div>
-                    </div>
-                    <!-- Escort Item -->
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="job-item text-center p-4">
-                            <img src="img/job-4.jpg" alt="Escort Image" class="img-fluid mb-3">
-                            <h5 class="mb-2">Jay</h5>
-                            <p class="mb-3">Charming and discreet, your ideal companion for any event.</p>
-                            <a href="#" class="btn btn-primary">View Profile</a>
-                        </div>
-                    </div>
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" style="color:#fff;">Featured Escorts</h1>
+                <div class="row g-4" id="escort-listings">
+                    <!-- Dynamic escort cards will be injected here by airtable.js -->
                 </div>
             </div>
         </div>
         <!-- Jobs End -->
-
-        <!-- Testimonial Start -->
-        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container">
-                <h1 class="text-center mb-5">What Our Clients Say</h1>
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item bg-light rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Mahanjam 254 exceeded my expectations. The booking was easy and my companion was stunning and professional.</p>
-                        <div class="d-flex align-items-center">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Daniel K.</h5>
-                                <small>Nairobi</small>
-                            </div>
-                        </div>
+        <div class="container-xxl py-5">
+            <div id="serviceBannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
+                <div class="carousel-inner rounded" style="height:180px; background:#222;">
+                    <div class="carousel-item active">
+                        <a href="https://your-service-1-link.com" target="_blank">
+                            <img src="img/banner1.jpg" class="d-block w-100 h-100" style="object-fit:cover; height:180px;" alt="Service 1">
+                        </a>
                     </div>
-                    <div class="testimonial-item bg-light rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Discreet, safe, and truly luxurious. I highly recommend Mahanjam 254 for anyone seeking an elite escort experience.</p>
-                        <div class="d-flex align-items-center">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Grace M.</h5>
-                                <small>Westlands</small>
-                            </div>
-                        </div>
+                    <div class="carousel-item">
+                        <a href="https://your-service-2-link.com" target="_blank">
+                            <img src="img/banner2.jpg" class="d-block w-100 h-100" style="object-fit:cover; height:180px;" alt="Service 2">
+                        </a>
                     </div>
-                    <div class="testimonial-item bg-light rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>My companion was attentive and made me feel special all evening. Thank you, Mahanjam 254!</p>
-                        <div class="d-flex align-items-center">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Peter O.</h5>
-                                <small>Karen</small>
-                            </div>
-                        </div>
+                    <div class="carousel-item">
+                        <a href="https://your-service-3-link.com" target="_blank">
+                            <img src="img/banner3.jpg" class="d-block w-100 h-100" style="object-fit:cover; height:180px;" alt="Service 3">
+                        </a>
                     </div>
-                    <div class="testimonial-item bg-light rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Professional service and beautiful escorts. Will definitely book again!</p>
-                        <div class="d-flex align-items-center">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Sarah N.</h5>
-                                <small>Mombasa</small>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Add more banners as needed -->
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#serviceBannerCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#serviceBannerCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
             </div>
         </div>
+
+        
         <!-- Testimonial End -->
 
         <!-- Footer Start -->
@@ -439,7 +403,72 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script src="js/airtable.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll('.escort-location-filter').forEach(btn => {
+            btn.addEventListener('click', function() {
+            const selected = this.getAttribute('data-location');
+            document.querySelectorAll('#escort-listings > [data-location]').forEach(card => {
+                if (selected === 'All' || card.getAttribute('data-location') === selected) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            // Highlight active button
+            document.querySelectorAll('.escort-location-filter').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+                    });
+                });
+            });
+        </script>
+
+        
     </div>
+    <script>
+    document.getElementById('escort-signup-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        var modal = new bootstrap.Modal(document.getElementById('escortSignupModal'));
+        modal.show();
+    });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.escort-location-filter').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const selected = this.getAttribute('data-location');
+                // Highlight active button immediately
+                document.querySelectorAll('.escort-location-filter').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // Add delay before filtering
+                setTimeout(() => {
+                    document.querySelectorAll('#escort-listings > [data-location]').forEach(card => {
+                        if (selected === 'All' || card.getAttribute('data-location') === selected) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }, 1000); // 400ms delay
+            });
+        });
+    });
+    </script>
+<!-- Modal -->
+        <div class="modal fade" id="escortSignupModal" tabindex="-1" aria-labelledby="escortSignupModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+              <div class="modal-header">
+                <h5 class="modal-title" id="escortSignupModalLabel">Escort Signup</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <iframe class="airtable-embed" src="https://airtable.com/embed/appEtcpuNIPBSeBuH/pagNORs4i2Tpab9pU/form" frameborder="0" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
 </body>
 
 </html>

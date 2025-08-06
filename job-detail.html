@@ -54,7 +54,7 @@
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="job-list.html" class="nav-item nav-link active">Escorts</a>
-                    <a href="#" class="nav-item nav-link">Login/Register</a>
+                    <a href="https://airtable.com/embed/appEtcpuNIPBSeBuH/pagNORs4i2Tpab9pU/form" target="_blank" class="nav-item nav-link">Escort Signup</a>
                 </div>
             </div>
         </nav>
@@ -113,45 +113,23 @@
                         <!-- Escort Video End -->
 
                         <!-- Booking Form Start -->
-                        <div class="mb-5">
-                            <h4 class="mb-4">Book This Escort</h4>
-                            <form>
-                                <div class="row g-3">
-                                    <div class="col-12 col-sm-6">
-                                        <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-                                    </div>
-                                    <div class="col-12 col-sm-6">
-                                        <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                                    </div>
-                                    <div class="col-12 col-sm-6">
-                                        <input type="text" class="form-control" name="phone" placeholder="Phone Number" required>
-                                    </div>
-                                    <div class="col-12 col-sm-6">
-                                        <input type="date" class="form-control" name="date" placeholder="Booking Date" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea class="form-control" name="details" rows="4" placeholder="Booking Details (optional)"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100" type="submit">Book Now</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        <div id="escort-contact-links" class="mb-4"></div>
                         <!-- Booking Form End -->
 
                         <!-- ...existing code for job description, responsibilities, etc. can be removed or kept as needed... -->
                     </div>
                     <div class="col-lg-4">
-                        <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
+                        <div id="escort-profile-summary" class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
                             <h4 class="mb-4">Escort Profile Summary</h4>
-                            <p><i class="fa fa-user text-primary me-2"></i><strong>Name:</strong></p>
-                            <p><i class="fa fa-venus-mars text-primary me-2"></i><strong>Gender:</strong> Female</p>
-                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i><strong>Location:</strong> Nairobi</p>
-                            <p><i class="fa fa-star text-primary me-2"></i><strong>Services:</strong> Massage, Dinner Date</p>
-                            <p><i class="fa fa-clock text-primary me-2"></i><strong>Availability:</strong> 24/7</p>
-                            <p><i class="fa fa-info-circle text-primary me-2"></i><strong>About:</strong> Elegant, charming, and ready to make your night unforgettable.</p>
+                            <p><i class="fa fa-user text-primary me-2"></i><strong>Name:</strong> <span id="escort-name">N/A</span></p>
+                            <p><i class="fa fa-venus-mars text-primary me-2"></i><strong>Gender:</strong> <span id="escort-gender">N/A</span></p>
+                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i><strong>Location:</strong> <span id="escort-location">Nairobi</span></p>
+                            <p><i class="fa fa-star text-primary me-2"></i><strong>Services:</strong> <span id="escort-services">N/A</span></p>
+                            <p><i class="fa fa-clock text-primary me-2"></i><strong>Availability:</strong> <span id="escort-availability">N/A</span></p>
+                            <p><i class="fa fa-info-circle text-primary me-2"></i><strong>About:</strong> <span id="escort-about"></span></p>
                         </div>
+                        
+                        
         
                         <!--div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
                             <h4 class="mb-4">Company Detail</h4>
@@ -162,6 +140,34 @@
             </div>
         </div>
         <!-- Job Detail End -->
+        <div class="container-xxl py-5">
+            <div id="serviceBannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
+                <div class="carousel-inner rounded" style="height:180px; background:#222;">
+                    <div class="carousel-item active">
+                        <a href="https://your-service-1-link.com" target="_blank">
+                            <img src="img/banner1.jpg" class="d-block w-100 h-100" style="object-fit:cover; height:180px;" alt="Service 1">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://your-service-2-link.com" target="_blank">
+                            <img src="img/banner2.jpg" class="d-block w-100 h-100" style="object-fit:cover; height:180px;" alt="Service 2">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://your-service-3-link.com" target="_blank">
+                            <img src="img/banner3.jpg" class="d-block w-100 h-100" style="object-fit:cover; height:180px;" alt="Service 3">
+                        </a>
+                    </div>
+                    <!-- Add more banners as needed -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#serviceBannerCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#serviceBannerCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
 
 
         <!-- Footer Start -->

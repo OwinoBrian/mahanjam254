@@ -580,3 +580,23 @@ a:hover {
   border-radius: 12px;
   padding: 2rem;
 }
+
+.telegram-btn {
+    background-color: #e52d27 !important;
+    color: #fff !important;
+    border-radius: 50px !important;
+    border: none !important;
+}
+
+/* Make filter buttons rounded and bold */
+.escort-location-filter {
+    border-radius: 25px !important;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+.escort-location-filter.active,
+.escort-location-filter:hover {
+    background-color: #e52d27 !important;
+    color: #fff !important;
+    border: none !important;
+}

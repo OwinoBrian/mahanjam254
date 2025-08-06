@@ -8,56 +8,86 @@ function getEscortIdFromURL() {
 
 // Helper: Populate the DOM
 function populateEscortDetail(record) {
+    if (!record || !record.fields) {
+        alert("Escort data missing.");
+        return;
+    }
     const fields = record.fields;
 
     // Fill Carousel
-    const photos = fields.Photos || [];
+    const photos = fields.Photo || [];
     const carouselInner = document.querySelector('.carousel-inner');
-    carouselInner.innerHTML = photos.map((photo, index) => `
-        <div class="carousel-item ${index === 0 ? 'active' : ''}">
-            <img src="${photo.url}" class="d-block w-100 h-100" style="object-fit:cover; height:350px;" alt="Escort Photo ${index + 1}">
-        </div>
-    `).join('');
+    if (carouselInner) {
+        carouselInner.innerHTML = photos.map((photo, index) => `
+            <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <img src="${photo.url}" class="d-block w-100 h-100" style="object-fit:cover; height:350px;" alt="Escort Photo ${index + 1}">
+            </div>
+        `).join('');
+    }
 
     // Update Video if available
     const videoEl = document.querySelector("video");
-    if (fields.Video && fields.Video[0]?.url) {
-        videoEl.querySelector("source").src = fields.Video[0].url;
-        videoEl.load();
-        videoEl.poster = photos[0]?.url || "img/default.jpg";
+    if (videoEl && fields.Video && fields.Video[0]?.url) {
+        const sourceEl = videoEl.querySelector("source");
+        if (sourceEl) {
+            sourceEl.src = fields.Video[0].url;
+            videoEl.poster = photos[0]?.url || "img/default.jpg";
+            videoEl.load();
+        }
     }
 
     // Summary Section
-    document.querySelector('#escort-detail').querySelector('.col-lg-4').innerHTML = `
-        <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
-            <h4 class="mb-4">Escort Profile Summary</h4>
-            <p><i class="fa fa-user text-primary me-2"></i><strong>Name:</strong> ${fields.Name || 'N/A'}</p>
-            <p><i class="fa fa-venus-mars text-primary me-2"></i><strong>Gender:</strong> ${fields.Gender || 'N/A'}</p>
-            <p><i class="fa fa-map-marker-alt text-primary me-2"></i><strong>Location:</strong> ${fields.Location || 'Nairobi'}</p>
-            <p><i class="fa fa-star text-primary me-2"></i><strong>Services:</strong> ${fields.Services?.join(', ') || 'N/A'}</p>
-            <p><i class="fa fa-clock text-primary me-2"></i><strong>Availability:</strong> ${fields.Availability || 'N/A'}</p>
-            <p><i class="fa fa-info-circle text-primary me-2"></i><strong>About:</strong> ${fields.About || ''}</p>
-        </div>
-    `;
+    if (document.getElementById('escort-name')) {
+        document.getElementById('escort-name').textContent = fields.Name || 'N/A';
+    }
+    if (document.getElementById('escort-gender')) {
+        document.getElementById('escort-gender').textContent = fields.Gender || 'N/A';
+    }
+    if (document.getElementById('escort-location')) {
+        document.getElementById('escort-location').textContent = fields.Location || 'Nairobi';
+    }
+    if (document.getElementById('escort-services')) {
+        document.getElementById('escort-services').textContent = Array.isArray(fields.services) ? fields.services.join(', ') : 'N/A';
+    }
+    if (document.getElementById('escort-availability')) {
+        document.getElementById('escort-availability').textContent = fields.Availability || 'N/A';
+    }
+    if (document.getElementById('escort-about')) {
+        document.getElementById('escort-about').textContent = fields.About || '';
+    }
+    if (document.getElementById('escort-contact-links')) {
+        const telegram = fields.telegram_username ? `https://t.me/${fields.telegram_username.replace('@','')}` : null;
+        const phone = fields.Phone ? `tel:${fields.Phone}` : null;
+        document.getElementById('escort-contact-links').innerHTML = `
+            ${telegram ? `<a href="${telegram}" target="_blank" class="btn btn-danger rounded-pill me-2 telegram-btn"><i class="fab fa-telegram-plane"></i> Chat on Telegram</a>` : ''}
+            ${phone ? `<a href="${phone}" class="btn btn-outline-success"><i class="fa fa-phone"></i> Call Escort</a>` : ''}
+        `;
+    }
 }
 
 // Main Loader
 function loadEscortDetail() {
     const escortId = getEscortIdFromURL();
     if (!escortId) {
-        alert("No escort ID provided.");
+        alert("No escort ID provided in URL.");
         return;
     }
 
-    base('Escorts').find(escortId, function(err, record) {
-        if (err) {
-            console.error(err);
+    fetch(`https://mahanjam254.onrender.com/api/escorts/${escortId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Escort not found (API returned " + response.status + ")");
+            }
+            return response.json();
+        })
+        .then(record => {
+            console.log("Fetched record:", record); // Debug log
+            populateEscortDetail(record);
+        })
+        .catch(err => {
+            console.error("Error fetching escort:", err);
             alert("Escort not found.");
-            return;
-        }
-
-        populateEscortDetail(record);
-    });
+        });
 }
 
 // Run on DOM ready

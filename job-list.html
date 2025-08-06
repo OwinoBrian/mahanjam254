@@ -115,7 +115,7 @@
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="job-list.html" class="nav-item nav-link active">Escorts</a>
-                    <!--a href="#" class="nav-item nav-link">Login/Register</a-->
+                    <a href="https://airtable.com/embed/appEtcpuNIPBSeBuH/pagNORs4i2Tpab9pU/form" target="_blank" class="nav-item nav-link">Escort Signup</a>
                 </div>
             </div>
         </nav>
@@ -174,6 +174,7 @@
         <!-- Search End -->
 
         <!-- Jobs Start -->
+        <div class="mb-4 text-center" id="escort-location-filters"></div>
         <div class="container-xxl py-5">
             <div class="container">
                 <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" style="color:#fff;">Featured Escorts</h1>
@@ -183,6 +184,34 @@
             </div>
         </div>
         <!-- Jobs End -->
+        <div class="container-xxl py-5">
+            <div id="serviceBannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
+                <div class="carousel-inner rounded" style="height:180px; background:#222;">
+                    <div class="carousel-item active">
+                        <a href="https://your-service-1-link.com" target="_blank">
+                            <img src="img/banner1.jpg" class="d-block w-100 h-100" style="object-fit:cover; height:180px;" alt="Service 1">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://your-service-2-link.com" target="_blank">
+                            <img src="img/banner2.jpg" class="d-block w-100 h-100" style="object-fit:cover; height:180px;" alt="Service 2">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://your-service-3-link.com" target="_blank">
+                            <img src="img/banner3.jpg" class="d-block w-100 h-100" style="object-fit:cover; height:180px;" alt="Service 3">
+                        </a>
+                    </div>
+                    <!-- Add more banners as needed -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#serviceBannerCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#serviceBannerCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
 
 
         <!-- Footer Start -->
@@ -283,9 +312,50 @@
         function renderJobs(jobs) { ... }
         document.addEventListener("DOMContentLoaded", () => { ... });
         */
-        </script>
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.escort-location-filter').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const selected = this.getAttribute('data-location');
+                document.querySelectorAll('#escort-listings > [data-location]').forEach(card => {
+                    if (selected === 'All' || card.getAttribute('data-location') === selected) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                // Highlight active button
+                document.querySelectorAll('.escort-location-filter').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.escort-location-filter').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const selected = this.getAttribute('data-location');
+                // Highlight active button immediately
+                document.querySelectorAll('.escort-location-filter').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // Add delay before filtering
+                setTimeout(() => {
+                    document.querySelectorAll('#escort-listings > [data-location]').forEach(card => {
+                        if (selected === 'All' || card.getAttribute('data-location') === selected) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }, 400); // 400ms delay
+            });
+        });
+    });
+    </script>
     <!-- WhatsApp Chat Widget -->
-    <a href="https://wa.me/254769373898" class="whatsapp-float" target="_blank">
+        <a href="https://wa.me/254769373898" class="whatsapp-float" target="_blank">
         <img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/whatsapp.svg" alt="WhatsApp Icon" class="whatsapp-icon">
     </a>
     

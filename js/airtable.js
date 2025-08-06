@@ -16,19 +16,37 @@ function renderEscortCards(escorts) {
   const container = document.getElementById("escort-listings");
   container.innerHTML = "";
 
+  // Collect unique locations
+  const locationsSet = new Set();
+  escorts.forEach(record => {
+    const escort = record.fields;
+    if (escort.Location) {
+      locationsSet.add(escort.Location);
+    }
+  });
+  const locations = Array.from(locationsSet);
+
+  // Render location filter buttons
+  const filterContainer = document.getElementById("escort-location-filters");
+  filterContainer.innerHTML = `
+    <button class="btn btn-outline-primary mx-1 escort-location-filter active" data-location="All">All</button>
+    ${locations.map(loc => `
+      <button class="btn btn-outline-primary mx-1 escort-location-filter" data-location="${loc}">${loc}</button>
+    `).join('')}
+  `;
+
+  // Render escort cards
   escorts.forEach(record => {
     const escort = record.fields;
     const username = escort.telegram_username?.replace('@', '');
-
     const card = `
-      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" data-location="${escort.Location || 'Undisclosed'}">
         <div class="job-item p-4 mb-4">
           <a href="job-detail.html?id=${record.id}" style="text-decoration: none; color: inherit;">
             <h5>${escort.Name || "Unnamed Escort"}</h5>
             <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${escort.Location || "Undisclosed"}</p>
             <p>${escort.services || "No services listed."}</p>
           </a>
-
           ${username ? `
             <a href="https://t.me/${username}" class="btn btn-outline-primary telegram-btn" target="_blank">
               <i class="fab fa-telegram-plane"></i> Chat on Telegram
@@ -39,8 +57,23 @@ function renderEscortCards(escorts) {
         </div>
       </div>
     `;
-
     container.innerHTML += card;
+  });
+
+  // Add filtering logic after rendering buttons
+  filterContainer.querySelectorAll('.escort-location-filter').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const selected = this.getAttribute('data-location');
+      container.querySelectorAll('[data-location]').forEach(card => {
+        if (selected === 'All' || card.getAttribute('data-location') === selected) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      filterContainer.querySelectorAll('.escort-location-filter').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
   });
 }
 
