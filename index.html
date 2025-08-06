@@ -195,6 +195,8 @@
 </head>
 
 <body>
+    <!-- Add this at the top of <body> -->
+    <div id="background-slideshow"></div>
     <!-- Place this just before </body> -->
     <div class="modal fade" id="escortSignupModal" tabindex="-1" aria-labelledby="escortSignupModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -252,28 +254,28 @@
                         <a class="cat-item rounded p-4" href="#">
                             <i class="fa fa-3x fa-glass-martini text-primary mb-4"></i>
                             <h6 class="mb-3">VIP Escort Companions</h6>
-                            <a href="#" class="btn btn-primary">Read More</a>
+                            <!--a href="#" class="btn btn-primary">Read More</a-->
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                         <a class="cat-item rounded p-4" href="#">
                             <i class="fa fa-3x fa-heart text-primary mb-4"></i>
                             <h6 class="mb-3">Romantic Dates</h6>
-                            <a href="#" class="btn btn-primary">Read More</a>
+                            <!--a href="#" class="btn btn-primary">Read More</a-->
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="cat-item rounded p-4" href="#">
                             <i class="fa fa-3x fa-user-secret text-primary mb-4"></i>
                             <h6 class="mb-3">Discreet Meetings</h6>
-                            <a href="#" class="btn btn-primary">Read More</a>
+                            <!--a href="#" class="btn btn-primary">Read More</a-->
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                         <a class="cat-item rounded p-4" href="#">
                             <i class="fa fa-3x fa-star text-primary mb-4"></i>
                             <h6 class="mb-3">Luxury Experiences</h6>
-                            <a href="#" class="btn btn-primary">Read More</a>
+                            <!--a href="#" class="btn btn-primary">Read More</a-->
                         </a>
                     </div>
                 </div>
@@ -453,6 +455,23 @@
                 }, 1000); // 400ms delay
             });
         });
+    });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = [
+            'img/full-nude-1.jpg',
+            'img/full-nude-2.jpg',
+            'img/full-nude-3.jpg'
+        ];
+        let idx = 0;
+        const bgDiv = document.getElementById('background-slideshow');
+        function showNextBg() {
+            bgDiv.style.backgroundImage = `url('${images[idx]}')`;
+            idx = (idx + 1) % images.length;
+        }
+        showNextBg();
+        setInterval(showNextBg, 5000); // Change every 5 seconds
     });
     </script>
 <!-- Modal -->

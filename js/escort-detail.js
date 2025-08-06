@@ -27,10 +27,10 @@ function populateEscortDetail(record) {
 
     // Update Video if available
     const videoEl = document.querySelector("video");
-    if (videoEl && fields.Video && fields.Video[0]?.url) {
+    if (videoEl && fields.video && fields.video[0]?.url) {
         const sourceEl = videoEl.querySelector("source");
         if (sourceEl) {
-            sourceEl.src = fields.Video[0].url;
+            sourceEl.src = fields.video[0].url;
             videoEl.poster = photos[0]?.url || "img/default.jpg";
             videoEl.load();
         }
@@ -47,13 +47,13 @@ function populateEscortDetail(record) {
         document.getElementById('escort-location').textContent = fields.Location || 'Nairobi';
     }
     if (document.getElementById('escort-services')) {
-        document.getElementById('escort-services').textContent = Array.isArray(fields.services) ? fields.services.join(', ') : 'N/A';
+        document.getElementById('escort-services').textContent = fields.services || 'N/A';
     }
     if (document.getElementById('escort-availability')) {
         document.getElementById('escort-availability').textContent = fields.Availability || 'N/A';
     }
     if (document.getElementById('escort-about')) {
-        document.getElementById('escort-about').textContent = fields.About || '';
+        document.getElementById('escort-about').textContent = fields.about || '';
     }
     if (document.getElementById('escort-contact-links')) {
         const telegram = fields.telegram_username ? `https://t.me/${fields.telegram_username.replace('@','')}` : null;

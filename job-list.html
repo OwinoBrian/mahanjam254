@@ -93,6 +93,8 @@
 </head>
 
 <body>
+    <!-- Add this at the top of <body> -->
+    <div id="background-slideshow"></div>   
     <div class="container-xxl" style="background-color:#181818;">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -352,6 +354,23 @@
                 }, 400); // 400ms delay
             });
         });
+    });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = [
+            'img/full-nude-1.jpg',
+            'img/full-nude-2.jpg',
+            'img/full-nude-3.jpg'
+        ];
+        let idx = 0;
+        const bgDiv = document.getElementById('background-slideshow');
+        function showNextBg() {
+            bgDiv.style.backgroundImage = `url('${images[idx]}')`;
+            idx = (idx + 1) % images.length;
+        }
+        showNextBg();
+        setInterval(showNextBg, 5000); // Change every 5 seconds
     });
     </script>
     <!-- WhatsApp Chat Widget -->

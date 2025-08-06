@@ -600,3 +600,24 @@ a:hover {
     color: #fff !important;
     border: none !important;
 }
+
+/* Slideshow background styles */
+#background-slideshow {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background-size: 300px auto;
+    background-position: center;
+    background-repeat: repeat;
+    transition: background-image 1s ease;
+    opacity: 0.80; /* dim the background */
+    pointer-events: none; /* allow clicks through */
+}
+
+/* Make sure your main content is above the background */
+body > *:not(#background-slideshow) {
+    position: relative;
+    z-index: 1;
+}
