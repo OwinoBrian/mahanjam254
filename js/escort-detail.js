@@ -47,7 +47,10 @@ function populateEscortDetail(record) {
         document.getElementById('escort-location').textContent = fields.Location || 'Nairobi';
     }
     if (document.getElementById('escort-services')) {
-        document.getElementById('escort-services').textContent = fields.services || 'N/A';
+    const servicesArr = (fields.services || '').split(',').map(s => s.trim()).filter(s => s);
+    document.getElementById('escort-services').innerHTML = servicesArr.length
+        ? `<ul style="padding-left:18px; margin-bottom:0;">${servicesArr.map(s => `<li>${s}</li>`).join('')}</ul>`
+        : 'N/A';
     }
     if (document.getElementById('escort-availability')) {
         document.getElementById('escort-availability').textContent = fields.Availability || 'N/A';
@@ -57,10 +60,10 @@ function populateEscortDetail(record) {
     }
     if (document.getElementById('escort-contact-links')) {
         const telegram = fields.telegram_username ? `https://t.me/${fields.telegram_username.replace('@','')}` : null;
-        const phone = fields.Phone ? `tel:${fields.Phone}` : null;
+        const phone = fields.phone ? `tel:${fields.phone}` : null;
         document.getElementById('escort-contact-links').innerHTML = `
             ${telegram ? `<a href="${telegram}" target="_blank" class="btn btn-danger rounded-pill me-2 telegram-btn"><i class="fab fa-telegram-plane"></i> Chat on Telegram</a>` : ''}
-            ${phone ? `<a href="${phone}" class="btn btn-outline-success"><i class="fa fa-phone"></i> Call Escort</a>` : ''}
+            ${phone ? `<a href="${phone}" class="btn btn-danger rounded-pill"><i class="fa fa-phone"></i> Call Escort</a>` : ''}
         `;
     }
 }

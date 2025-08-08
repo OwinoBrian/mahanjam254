@@ -588,6 +588,13 @@ a:hover {
     border: none !important;
 }
 
+.fa-phone {
+    background-color: #e52d27 !important;
+    color: #fff !important;
+    border-radius: 50px !important;
+    border: none !important;
+}
+
 /* Make filter buttons rounded and bold */
 .escort-location-filter {
     border-radius: 25px !important;

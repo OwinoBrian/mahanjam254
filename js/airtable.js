@@ -24,6 +24,11 @@ function renderEscortCards(escorts) {
       locationsSet.add(escort.Location);
     }
   });
+
+  // --- Inject manual locations here ---
+  const manualLocations = ['Gilgil','Naivasha','Dunga','Mamboleo', 'Nyali', 'Bamburi', 'Mtwapa', 'Shanzu', 'Tudor', 'Likoni', 'Changamwe','Lavington', 'Eastleigh', 'Lang’ata', 'South B', 'Kasarani','Parklands','Thika Rd', 'Nyalenda', 'Kahawa Sukari','Westlands' ,'Kilimani', 'CBD' ,'Karen' ,'Upper Hill', 'Parklands', 'Nyali', 'Bamburi', 'Mtwapa', 'Shanzu', 'Milimani','Dunga Beach', 'Kapsoya', 'West Indies' ]; // Add your custom locations
+  manualLocations.forEach(loc => locationsSet.add(loc));
+  //
   const locations = Array.from(locationsSet);
 
   // Render location filter buttons
@@ -50,18 +55,28 @@ function renderEscortCards(escorts) {
             <a href="job-detail.html?id=${record.id}" style="text-decoration: none; color: inherit;">
               <h5>${escort.Name || "Unnamed Escort"}</h5>
               <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${escort.Location || "Undisclosed"}</p>
-              <p>${escort.services || "No services listed."}</p>
+              
+              <p class="escort-services-truncate">${escort.services || "No services listed."}</p>
+              
             </a>
             ${username ? `
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
               <a href="https://t.me/${username}" class="btn btn-outline-primary telegram-btn" target="_blank">
                 <i class="fab fa-telegram-plane"></i> Chat on Telegram
               </a>
-            ` : `
-              <p class="text-muted"><i class="fa fa-times-circle"></i> Telegram not available</p>
-            `}
+              <a href="job-detail.html?id=${record.id}" class="btn btn-outline-primary telegram-btn">
+                <i class="fa fa-user"></i> View Profile
+              </a>
+            </div>
+          ` : `
+            <p class="text-muted"><i class="fa fa-times-circle"></i> Telegram not available</p>
+            <a href="job-detail.html?id=${record.id}" class="btn btn-outline-primary telegram-btn">
+              <i class="fa fa-user"></i> View Profile
+            </a>
+`}
           </div>
           <div style="flex-shrink:0;">
-            <img src="${propicUrl}" alt="Profile Picture" style="width:70px; height:70px; object-fit:cover; border-radius:50%; border:2px solid #e52d27;">
+            <img src="${propicUrl}" alt="Profile Picture" style="width:150px; height:150px; object-fit:cover; border-radius:50%; border:2px solid #e52d27;">
           </div>
         </div>
       </div>
